@@ -87,6 +87,7 @@ def print_hi(name):
     print(p1+p2)
 
 #     add comment in py file
+# add sone more
 
 
 # Press the green button in the gutter to run the script.
