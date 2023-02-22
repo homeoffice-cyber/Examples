@@ -6,3 +6,6 @@ edit file merged into master
 =======
 added another line in readme
 >>>>>>> dev
+> 
+> dev1 first edits
+> 
