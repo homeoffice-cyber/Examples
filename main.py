@@ -88,6 +88,7 @@ def print_hi(name):
 
 #     add comment in py file
 # add sone more
+#  still learning
 
 
 # Press the green button in the gutter to run the script.
