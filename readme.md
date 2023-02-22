@@ -6,3 +6,4 @@ edit file merged into master
 =======
 added another line in readme
 >>>>>>> dev
+back to master
