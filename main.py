@@ -54,6 +54,8 @@ class Point:
         self.y = y
 
     def __str__(self):
+        s = "({0},{1})".format(self.x, self.y)
+        print(type(s), s)
         return "({0},{1})".format(self.x, self.y)
 
     def __add__(self, other):
@@ -77,8 +79,10 @@ def print_hi(name):
     # Calculating and printing the area of the Rectangle
     # t.findArea()
 
-    p1 = Point(1, 2)
+    p1 = Point(0, 2)
     p2 = Point(2, 3)
+
+    print(type(p1))
 
     print(p1+p2)
 
