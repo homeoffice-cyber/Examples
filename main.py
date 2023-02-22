@@ -86,6 +86,8 @@ def print_hi(name):
 
     print(p1+p2)
 
+#     add comment in py file
+
 
 # Press the green button in the gutter to run the script.
 if __name__ == '__main__':
