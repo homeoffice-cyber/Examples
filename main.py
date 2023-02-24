@@ -54,8 +54,8 @@ class Point:
         self.y = y
 
     def __str__(self):
-        s = "({0},{1})".format(self.x, self.y)
-        print(type(s), s)
+        # s = "({0},{1})".format(self.x, self.y)
+        # print(type(s), s)
         return "({0},{1})".format(self.x, self.y)
 
     def __add__(self, other):
