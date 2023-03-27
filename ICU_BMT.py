@@ -19,7 +19,9 @@ Bun_Cre = ['2/16-04:20', 23, 1.08, '2/17-04:20', 21, 1.02, '2/18-06:00', 22, 1.0
            '3/16-13:28',104,3.23,'3/16-22:55',107,3.15,'3/17-3:10',96,2.75,'3/17-10:09',80,2.37,
            '3/17-23:05',63,1.87,'3/18-6:00',59,1.83,'3/18-14:20',53,1.66,'3/18-22:10',49,1.65,'3/19-6:10',55,1.52,
 '3/19-14:10',52,1.64,'3/19-22:20',49,1.61,'3/20-6:08',54,1.44,'3/20-13:01',51,1.65,'3/20-22:12',69,2.13,'3/21-9:10',89,2.66,
-'3/21-21:45',113,3.34,'3/22-5:38',118,3.31,'3/22-15:13',126,3.56,'3/22-18:20',93,2.46,'3/23-5:41',84,2.73]
+'3/21-21:45',113,3.34,'3/22-5:38',118,3.31,'3/22-15:13',126,3.56,'3/22-18:20',93,2.46,'3/23-5:41',84,2.73,'3/23-18:00',97,3.19,'3/24-6:00',95,3.33,
+           '3/24-18:05',45,2.28,'3/25-5:58',57,3.04,'3/25-18:15',63,3.6,'3/26-6:00',69,3.68,'3/26-18:10',36,2.45,
+           '3/27-6:10',48,2.95]
 
 cbc = ['2/16-04:20', 1.3, 82, '2/17-04:20',1.6, 64 , '2/18-06:00', 1.4, 52, '2/19-04:40', 0.7, 36, '2/20-04:55',0.2, 28
            , '2/21-04:40', 0.1,10,
@@ -33,17 +35,28 @@ cbc = ['2/16-04:20', 1.3, 82, '2/17-04:20',1.6, 64 , '2/18-06:00', 1.4, 52, '2/1
        '3/12-21:03',0.1,14,'3/13-6:57',0.2,22,'3/13-18:00',0.2,18,'3/14-5:45',.2,21,'3/14-17:40',.2,16,
        '3/15-5:20',.2,15,'3/15-18:23',.2,8,'3/16-4:45',.3,8,'3/16-12:20',.3,7,'3/16-22:01',.3,6,'3/17-10:09',.3,14,
        '3/17-20:45',0.3,17,'3/18-6:00',0.4,15,'3/18-18:10',0.2,8,'3/19-6:10',0.2,11,'3/19-18:05',0.3,7,'3/20-6:08',0.2,12,'3/20-22:12',0.4,17,'3/21-9:10',0.4,24,'3/21-21:45',0.4,33,'3/22-5:38',0.5,27,
-       '3/22-18:20',.5,9,'3/23-5:41',.4,18]
+       '3/22-18:20',.5,9,'3/23-5:41',.4,18,'3/23-18:00',.6,12,'3/24-6:00',.6,9,'3/24-18:05',.7,8,
+       '3/25-5:58',1,13,'3/25-18:15',1.3,7,'3/26-6:00',1.4,12,'3/26-12:45',1.4,7,'3/26-18:10',1.4,5,'3/27-2:30',1.3,8,
+       '3/27-6:10',1.3,6]
 
 neu = ['2/16-4:20',83,1.1,'2/17-4:20',89,1.4,'2/18-6:00',90,1.2,'2/19-4:40',94,.7,'3/11-5:00',60,.2,'3/11-2:16',88,.4,'3/16-4:45',7,0,'3/16-12:20',7,0,'3/17-10:09',7,0,'3/18-6:00',11,0,'3/19-6:05',22,.1,
-       '3/20-10:12',31,.1,'3/21-9:10',60,.2,'3/21-21:45',58,.2,'3/22-5:38',42,.2,'3/22-18:20',44,.2,'3/23-5:41',52,.2]
+       '3/20-10:12',31,.1,'3/21-9:10',60,.2,'3/21-21:45',58,.2,'3/22-5:38',42,.2,'3/22-18:20',44,.2,'3/23-5:41',52,.2,'3/23-18:00',65,.4,'3/24-6:00',64,.4,'3/24-18:05',64,.4,
+       '3/25-5:58',66,.7,'3/25-18:15',53,.7,'3/26-6:00',53,.7,'3/26-18:10',64,.9,'3/27-2:30',50,.7,'3/27-6:10',57,.7]
+
+dialysis = ['03/16 21:45','03/19 16:00','03/22 17:15','03/22 19:30','03/24 09:07','03/24 12:17','03/26 09:42','03/26 12:15']
+
+platelets = ['3/20 01:00','3/20 13:00','3/20 21:00','3/21 02:00','3/21 07:00','3/21 17:00','3/22 23:00',
+             '3/23 02:00','3/23 11:00','3/24 11:00','3/24 12:30','3/24 23:30','3/25 01:00','3/25 22:45',
+             '3/26 00:45','3/26 15:10','3/26 22:30','3/27 00:00','3/27 06:55','3/27 11:43']
 
 dt = []
 bun = []
 cre = []
 
 for i in range(0, len(Bun_Cre), 3):
-    dt.append(datetime.datetime.strptime(Bun_Cre[i], "%m/%d-%H:%M"))
+    date = datetime.datetime.strptime(Bun_Cre[i], "%m/%d-%H:%M")
+    date = date.replace(2023)
+    dt.append(date)
     bun.append(Bun_Cre[i + 1])
     cre.append(Bun_Cre[i + 2])
 
@@ -52,7 +65,9 @@ neu_n = []
 neu_a = []
 
 for i in range(0, len(neu), 3):
-    dt_n.append(datetime.datetime.strptime(neu[i], "%m/%d-%H:%M"))
+    date = datetime.datetime.strptime(neu[i], "%m/%d-%H:%M")
+    date = date.replace(2023)
+    dt_n.append(date)
     neu_n.append(neu[i + 1])
     neu_a.append(neu[i + 2]*1000)
 
@@ -63,13 +78,20 @@ ax.plot(dt, bun, color="red", marker="o")
 plt.axhline(25, color='red')
 ax.xaxis.set_major_formatter(mdates.DateFormatter('%m-%d'))
 plt.xticks(rotation=45)
-lims = (np.datetime64('1900-03-15'), np.datetime64('1900-03-24'))
-ax.set_xlim(lims)
-plt.axvline(np.datetime64('1900-03-16 21:45:00'), color='green')
-plt.axvline(np.datetime64('1900-03-19 16:00:00'), color='red')
 
-plt.axvline(np.datetime64('1900-03-22 17:15:00'), color='green')
-plt.axvline(np.datetime64('1900-03-22 19:30:00'), color='red')
+date_max = datetime.datetime.now()
+date_max += datetime.timedelta(days=1)
+lims = (np.datetime64('2023-03-15'), np.datetime64(date_max))
+ax.set_xlim(lims)
+
+for idx, i in enumerate(dialysis):
+    date = datetime.datetime.strptime(i, "%m/%d %H:%M")
+    date = date.replace(2023)
+    if idx % 2 == 0:
+        color = 'red'
+    else:
+        color = 'green'
+    plt.axvline(np.datetime64(date), color=color)
 
 
 plt.grid(True)
@@ -92,7 +114,9 @@ pl = []
 wb = []
 
 for i in range(0, len(cbc), 3):
-    dt.append(datetime.datetime.strptime(cbc[i], "%m/%d-%H:%M"))
+    date = datetime.datetime.strptime(cbc[i], "%m/%d-%H:%M")
+    date = date.replace(2023)
+    dt.append(date)
     wb.append(cbc[i + 1])
     pl.append(cbc[i + 2])
 
@@ -102,7 +126,6 @@ plt.plot(dt,pl,color="red", marker="o" )
 ax.xaxis.set_major_formatter(mdates.DateFormatter('%m-%d'))
 plt.ylabel('Platelets [k/cumm]', color="red", fontsize=14)
 plt.xticks(rotation=45)
-ax.xaxis.set_major_formatter(mdates.DateFormatter('%m-%d'))
 plt.grid(True)
 plt.axhline(130, color='red')
 
@@ -110,9 +133,9 @@ ax2 = ax.twinx()
 ax2.plot(dt, wb, color="blue", marker="o")
 plt.axhline(4.1, color='blue')
 ax2.set_ylabel('WBC [k/cumm]', color="blue", fontsize=14)
-
 plt.tight_layout()
 plt.show()
+
 
 
 fig, ax = plt.subplots()
@@ -120,7 +143,6 @@ plt.plot(dt_n,neu_a,color="red", marker="o" )
 ax.xaxis.set_major_formatter(mdates.DateFormatter('%m-%d'))
 plt.ylabel('Neutrophil Count [/cumm]', color="red", fontsize=14)
 plt.xticks(rotation=45)
-ax.xaxis.set_major_formatter(mdates.DateFormatter('%m-%d'))
 plt.grid(True)
 plt.axhline(1.58*1000, color='red')
 
@@ -133,19 +155,40 @@ plt.tight_layout()
 plt.show()
 
 
+timedeltas = [dt[i] - dt[i-1] for i in range(1, len(dt))]
+dateTimeDifferenceInHours = [timedeltas[i].total_seconds() / 3600 for i in range(len(timedeltas))]
+dpl = [pl[i] - pl[i-1] for i in range(1, len(pl))]
+grad = [dpl[i]/dateTimeDifferenceInHours[i] for i in range(len(dateTimeDifferenceInHours))]
 
-# fig, ax = plt.subplots()
-# plt.plot(dt,pl,color="red", marker="o" )
-# ax.xaxis.set_major_formatter(mdates.DateFormatter('%m-%d'))
-# plt.ylabel('Platelets [k/cumm]', color="red", fontsize=14)
-# plt.xticks(rotation=45)
-# ax.xaxis.set_major_formatter(mdates.DateFormatter('%m-%d %H'))
-# lims = (np.datetime64('1900-03-13'), np.datetime64('1900-03-18'))
-# ax.set_xlim(lims)
-# ax.set_ylim((0,25))
-# plt.grid(True)
-# # plt.axhline(130, color='red')
-#
-#
-# plt.tight_layout()
-# plt.show()
+
+fig, ax = plt.subplots()
+plt.plot(dt,pl,color="red", marker="o" )
+for idx, val in enumerate(grad):
+    if idx >= 57:
+        plt.text(dt[idx+1],1.1*pl[idx+1],"{:.2f}".format(val))
+
+ax.xaxis.set_major_formatter(mdates.DateFormatter('%m-%d'))
+plt.ylabel('Platelets [k/cumm]', color="red", fontsize=14)
+plt.xticks(rotation=45)
+lims = (np.datetime64('2023-03-21'), np.datetime64(date_max))
+ax.set_xlim(lims)
+ax.set_ylim((0,40))
+plt.grid(True)
+
+for idx, i in enumerate(dialysis):
+    date = datetime.datetime.strptime(i, "%m/%d %H:%M")
+    date = date.replace(2023)
+    if idx % 2 == 0:
+        color = 'red'
+    else:
+        color = 'green'
+    plt.axvline(np.datetime64(date), color=color)
+
+for i in platelets:
+    date = datetime.datetime.strptime(i, "%m/%d %H:%M")
+    date = date.replace(2023)
+    plt.axvline(date, color='blue')
+
+plt.tight_layout()
+plt.show()
+
